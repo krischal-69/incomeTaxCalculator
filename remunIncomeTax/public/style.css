@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Kanit:wght@300&family=Lobster+Two&family=Poppins&family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(45deg, #ffd6ff, #caf0f8);
+    min-height: 100vh;
+}
+
+.content header, .content .main-content{
+    padding: 0 3%;
+}
+
+.head h1{
+    font-family: 'Lobster Two', cursive;
+    font-size: 35px;
+    text-align: center;
+    padding: 5px 0 20px;
+}
+
+header{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    padding: 5px 10px;
+    width: 90%;
+    border-bottom: 2px solid black;
+}
+
+.left-side{
+    flex: 51%;
+}
+
+.right-side{
+    flex: 49%;
+}
+
+.left-side, .right-side{
+    padding-bottom: 1.1%;
+}
+
+.left-side div, .right-side div{
+    display: flex;
+    flex: 50%;
+}
+
+.left-side div div, .right-side div div{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, input[type="text"]{
+    width: 105px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    padding: 2px 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#gi-field{
+    width: 130px;
+    color: #f72585;
+    font-weight: bold;
+}
+
+input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 22px !important;
+    width: 22px !important;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    outline: none;
+}
+
+input[type="checkbox"]::after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: bolder;
+    color: white;
+    content: "\f00c";
+    font-size: 15px;
+    display: none;
+}
+
+input[type="checkbox"]:checked{
+    background-color: #f72585;
+}
+
+input[type="checkbox"]:checked::after{
+    display: block;
+}
+
+.main-content{
+    width: 90%;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    border-bottom: 2px solid black;
+}
+
+.left-sideb, .right-sideb{
+    margin: 1.5% 0;
+}
+
+.right-sideb{
+    flex: 50%;
+    padding-left: 2%;
+}
+
+.left-sideb{
+    flex: 50%;
+}
+
+.left-sideb div, .right-sideb div{
+    display: flex;
+}
+
+.left-sideb .div-head .lbl{
+    flex: 78%;
+}
+
+.left-sideb .div-head .inp{
+    flex: 22%;
+}
+
+.left-sideb div div, .right-sideb div div{
+    flex: 50%;
+}
+
+.right-sideb .div-head{
+    padding: 10px 0;
+}
+
+.left-sideb div div, .right-sideb div div{
+    padding: 10px 0;
+}
+
+label{
+    font-weight: bold;
+}
+
+input[type="number"]{
+    width: 30px;
+    height: 23px;
+    border: 1.5px solid black;
+    border-radius: 5px; 
+    padding: 2px 3px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.inp input:first-child{
+    margin-right: 25px;
+    width: 200px;
+    font-weight: normal;
+}
+
+.inp input:first-child::-webkit-inner-spin-button, .inp input:first-child::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.calc-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tax-calc{
+    margin-top: 2%;
+    background-color: transparent;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    transition: all 0.25s 0s ease-in-out;
+    cursor: pointer;
+}
+
+.tax-calc:hover{
+    background-color: #f72585;
+    color: white;
+    transform: scale(1.05);
+}
+
+.pop-modal{
+    background: linear-gradient(315deg, rgba(255, 214, 255, 0.75), rgba(202, 240, 248,0.75));
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(207, 207, 207, 0.7);
+    top: 0;
+    transition: opacity 0.2s ease;
+}
+
+body.show-tax .pop-modal{
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+.pop-modal .modal-content{
+    height: 500px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    box-sizing: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 25px;
+    position: relative;
+    transform: scale(0.55);
+    transition: transform 0.35s ease-out;
+}
+
+body.show-tax .pop-modal .modal-content{
+    transform: scale(1);
+}
+
+.pop-modal .modal-content .modal-head{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 25px;
+    right: 25px;
+    font-weight: bold;
+}
+
+.modal-head p{
+    transform: rotate(45deg);
+    cursor: pointer;
+    background: transparent;
+}
+
+.modal-body{
+    padding-top: 30px;
+}
+
+.modal-body div{
+    padding: 10px 0;
+}
+
+.taxis{
+    font-weight: bold;
+}
+
+table{
+    padding: 3px 5px;
+}
+
+td[colspan="90%"]{
+    border-top: 1.5px solid black;
+}
+
+.slab{
+    border: 2px solid black;
+}
+
+.slab tr{
+    text-align: center;
+}
+
+.slab tr td{
+    padding: 0px 4px;
+}
+
+.slab tr th{
+    padding: 1px 6px;
+    border-right: 1.5px solid black;
+}
+
+#income-deduc{
+    display: flex;
+}
+
+#income-deduc div{
+    flex: 50%;
+}
+
+#income-deduc div table, .taxable table{
+    border: 2px solid black;
+    width: 100%;
+    padding: 3px 10px;
+}
+
+.f-right, .s-right{
+    text-align: right;
+}
+
+.tbl-head{
+    font-weight: bold;
+}
+
+.taxable table{
+    width: 100%;
+}
+
+@media all and (max-width: 1000px){
+    *{
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+    }
+    .content header, .content .main-content{
+        padding: 0 1.5%;
+    }
+    .head h1{
+        width: 100%;
+        text-align: center;
+    }
+    header{
+        flex-direction: column;
+    }
+    .main-content{
+        flex-direction: column;
+    }
+    .lbl label{
+        text-align: left;
+    }
+    .income .inp input:first-child{
+        width: 200px;
+        height: 25px;
+    }
+    .income .inp input:nth-child(2), .deduction .inp input{
+        height: 25px;
+    }
+    .deduction .inp input{
+        width: 250px;
+        margin: 0;
+    }
+    button{
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (max-width: 450px){
+    *{
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+    }
+    .content header, .content .main-content{
+        padding: 0 1.5%;
+    }
+    .head h1{
+        width: 100%;
+        text-align: center;
+    }
+    header{
+        flex-direction: column;
+    }
+    .main-content{
+        flex-direction: column;
+    }
+    .lbl label{
+        text-align: left;
+    }
+    .income .inp input:first-child{
+        width: 100px;
+        height: 20px;
+    }
+    .income .inp input:nth-child(2), .deduction .inp input{
+        height: 20px;
+    }
+    .deduction .inp input{
+        width: 150px;
+        margin: 0;
+    }
+    button{
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (max-width: 300px){
+    *{
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+    }
+    .content header, .content .main-content{
+        padding: 0 1.5%;
+    }
+    .head h1{
+        width: 100%;
+        text-align: center;
+    }
+    header{
+        flex-direction: column;
+    }
+    .main-content{
+        flex-direction: column;
+    }
+    .lbl label{
+        text-align: left;
+    }
+    .income .inp input:first-child{
+        width: 100px;
+        height: 20px;
+    }
+    .income .inp input:nth-child(2), .deduction .inp input{
+        height: 20px;
+    }
+    .income .inp input:nth-child(2){
+        display: block;
+    }
+    .deduction .inp input{
+        width: 150px;
+        margin: 0;
+    }
+    button{
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="content">
+        <div class="head">
+            <h1>Remuneration Tax Calculator 2079</h1>
+        </div>
+        <header>
+            <div class="left-side">
+                <div class="sex-part">
+                    <div class="lbl">
+                        <label>Sex</label>
+                    </div>
+                    <div class="inp">
+                        <select name="sex" id="sex-choose">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="marital-part">
+                    <div class="lbl">
+                        <label>Marital Status</label>
+                    </div>
+                    <div class="inp">
+                        <select name="marital-status" id="marry-choose">
+                            <option value="unmarried">Unmarried</option>
+                            <option value="married">Married</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="gi-calc">
+                    <div class="lbl">
+                        <label for="gi-field">Gross Income</label>
+                    </div>
+                    <div class="inp">
+                        <input type="text" id="gi-field" readonly>
+                    </div>
+                </div>
+                <div class="ssf-aff">
+                    <div class="lbl">
+                        <label for="aff">Social Security Fund Affiliation</label>
+                    </div>
+                    <div class="inp">
+                        <input type="checkbox" name="ation" id="aff" value="yes">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="main-content">
+            <div class="left-sideb">
+                <div class="div-head">
+                    <div class="lbl">
+                        <h2>Income</h2>
+                    </div>
+                    <div class="inp">
+                        <h2 style="margin-left: 10px;">Duration</h2>
+                    </div>
+                </div>
+                <div class="income">
+                    <div class="lbl">
+                        <label for="monthly-income">Monthly Income</label>
+                    </div>
+                    <div class="inp">
+                        <input type="number" name="mIncome" id="monthly-income" placeholder="Enter Monthly Income">
+                        <input type="number" id="mi-dur" min="1" max="12" value="12">
+                    </div>
+                </div>
+                <div class="income">
+                    <div class="lbl">
+                        <label for="fund-allow" id="rfAllow">Retirement Fund Allowance (PF/CIT)</label><span>[18.33%]</span>
+                    </div>
+                    <div class="inp">
+                        <input style="text-align: right;" type="text" name="rFund" id="fund-allow" placeholder="Retirement Fund" readonly>
+                        <input type="number" id="rf-dur" min="1" max="12" value="1" readonly>
+                    </div>
+                </div>
+                <div class="income">
+                    <div class="lbl">
+                        <label for="festive-allow">Festival Allowance</label>
+                    </div>
+                    <div class="inp">
+                        <input type="number" name="fAllow" id="festive-allow" placeholder="Enter Festival Allowance">
+                        <input type="number" id="fa-dur" min="1" max="12" value="1">
+                    </div>
+                </div>
+                <div class="income">
+                    <div class="lbl">
+                        <label for="other-allow">Other Allowance</label>
+                    </div>
+                    <div class="inp">
+                        <input type="number" name="oAllow" id="other-allow" placeholder="Enter Other Allowances">
+                        <input type="number" id="oa-dur" min="1" max="12" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="right-sideb">
+                <div class="div-head">
+                    <h2>Annual Allowable Deductions</h2>
+                </div>
+                <div class="deduction">
+                    <div class="lbl">
+                        <label for="rf-dedu" id="rfDedu">Retirement Fund Deduction (PF/CIT)</label><span>[31%]</span>
+                    </div>
+                    <div class="inp">
+                        <input type="number" name="rDedu" id="rf-dedu" max="300000" placeholder="Retirement Deduction" readonly>
+                    </div>
+                </div>
+                <div class="deduction">
+                    <div class="lbl">
+                        <label for="li-dedu">Life Insurance Deduction</label><span>[Max 40,000]</span>
+                    </div>
+                    <div class="inp">
+                        <input type="number" name="lDedu" id="li-dedu" placeholder="Enter Life Insurance Deduction">
+                    </div>
+                </div>
+                <div class="deduction">
+                    <div class="lbl">
+                        <label for="hei-dedu">Health Insurance Deduction</label><span>[Max 25,000]</span>
+                    </div>
+                    <div class="inp">
+                        <input type="number" name="heDedu" id="hei-dedu" placeholder="Enter Health Insurance Deduction">
+                    </div>
+                </div>
+                <div class="deduction">
+                    <div class="lbl">
+                        <label for="hoi-dedu">House Insurance Deduction</label><span>[Max 15,000]</span>
+                    </div>
+                    <div class="inp">
+                        <input type="number" name="hoDedu" id="hoi-dedu" placeholder="Enter House Insurance Deduction">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="calc-btn">
+            <button class="tax-calc">Calculate</button>
+        </div>
+    </div>
+    <div class="pop-modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <p class="close-btn">+</p>
+            </div>
+            <div class="modal-body">
+                <div class="taxis">
+                    <p class="yearly-it">Yearly Income Tax</p>
+                    <p class="monthly-it">Monthly Income Tax</p>
+                    <p class="f-rebate">Female Rebate</p>
+                </div>
+                <div class="taxable">
+                    <table class="taxable-income">
+                        <tr>
+                            <td class="tbl-head">Total Taxable Income</td>
+                            <td class="tti-cell f-right" id="txbl">0</td>
+                        </tr>
+                    </table>
+                </div>                 
+                <div class="tax-slab">
+                    <table class="slab">
+                        <tr>
+                            <th class="f-brack">0</th>
+                            <th class="s-brack">0</th>
+                            <th class="t-brack">0</th>
+                            <th class="fo-brack">0</th>
+                            <th class="fi-brack" style="border: none;">0</th>
+                        </tr>
+                        <tr>
+                            <td colspan="90%"></td>
+                        </tr>                         
+                        <tr>
+                            <td class="f-val">0</td>
+                            <td class="s-val">0</td>
+                            <td class="t-val">0</td>
+                            <td class="fo-val">0</td>
+                            <td class="fi-val">0</td>
+                        </tr>
+                    </table>
+                </div>               
+                <div id="income-deduc">
+                    <div id="income-tbl">
+                        <table class="income">
+                            <tr class="tbl-head">
+                                <td>Income Source</td>
+                                <td class="f-right">Income</td>
+                            </tr>
+                            <tr>
+                                <td colspan="90%"></td>
+                            </tr>                             
+                            <tr>
+                                <td>Monthly Income</td>
+                                <td class="f-right" id="mii">0</td>
+                            </tr>
+                            <tr>
+                                <td id="rfa-tbl">Retirement Fund (PF)</td>
+                                <td class="f-right" id="rfi">0</td>
+                            </tr>
+                            <tr>
+                                <td>Festival Allowance</td>
+                                <td class="f-right" id="fai">0</td>
+                            </tr>
+                            <tr>
+                                <td>Other Allowances</td>
+                                <td class="f-right" id="oai">0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="90%"></td>
+                            </tr>                             
+                            <tr>
+                                <td class="tbl-head">Gross Income</td>
+                                <td class="f-right" id="gi">0</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="deduc-tbl">
+                        <table class="deduc">
+                            <tr class="tbl-head">
+                                <td>Deduction Field</td>
+                                <td class="f-right">Deduction</td>
+                            </tr>
+                            <tr>
+                                <td colspan="90%"></td>
+                            </tr>                             
+                            <tr>
+                                <td id="rfd-tbl">Retirement Fund (PF/CIT)</td>
+                                <td class="f-right" id="rfd">0</td>
+                            </tr>
+                            <tr>
+                                <td>Life Insurance</td>
+                                <td class="f-right" id="lid">0</td>
+                            </tr>
+                            <tr>
+                                <td>Health Insurance</td>
+                                <td class="f-right" id="heid">0</td>
+                            </tr>
+                            <tr>
+                                <td>House Insurance</td>
+                                <td class="f-right" id="hoid">0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="90%"></td>
+                            </tr>                             
+                            <tr>
+                                <td class="tbl-head">Total Allowable Deduction</td>
+                                <td class="f-right" id="tadd">0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCRnxHNapTTnMhHoYiMp-ctPopO8n-BDh0",
+          authDomain: "nepincometaxcalculator.firebaseapp.com",
+          projectId: "nepincometaxcalculator",
+          storageBucket: "nepincometaxcalculator.appspot.com",
+          messagingSenderId: "514540082200",
+          appId: "1:514540082200:web:7e6a8c1a8ffc0db4cc9f6d",
+          measurementId: "G-SZENDTLHQN"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+<script src="script.js"></script>
+</html>
